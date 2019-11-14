@@ -65,13 +65,8 @@ on other modules, but this is taken care of by the NuGet package dependency syst
 * [Gemini.Modules.ErrorList](http://nuget.org/packages/Gemini.Modules.ErrorList/)
 * [Gemini.Modules.GraphEditor](http://nuget.org/packages/Gemini.Modules.GraphEditor/)
 * [Gemini.Modules.Inspector](http://nuget.org/packages/Gemini.Modules.Inspector/)
-* [Gemini.Modules.Inspector.MonoGame](http://nuget.org/packages/Gemini.Modules.Inspector.MonoGame/)
-* [Gemini.Modules.Inspector.Xna](http://nuget.org/packages/Gemini.Modules.Inspector.Xna/)
-* [Gemini.Modules.MonoGame](http://nuget.org/packages/Gemini.Modules.MonoGame/)
 * [Gemini.Modules.Output](http://nuget.org/packages/Gemini.Modules.Output/)
 * [Gemini.Modules.PropertyGrid](http://nuget.org/packages/Gemini.Modules.PropertyGrid/)
-* [Gemini.Modules.SharpDX](http://nuget.org/packages/Gemini.Modules.SharpDX/)
-* [Gemini.Modules.Xna](http://nuget.org/packages/Gemini.Modules.Xna/)
 
 ## Continuous builds
 
@@ -352,13 +347,8 @@ Several more modules ship with Gemini, and are available as
 * ErrorList
 * GraphEditor
 * Inspector
-* Inspector.MonoGame
-* Inspector.Xna
-* MonoGame
 * Output
 * PropertyGrid
-* SharpDX
-* Xna
 
 For more information about these modules, see below. In general, each module adds some combination
 of menu items, tool window, document types and services.
@@ -907,41 +897,6 @@ inspectorTool.SelectedObject = new InspectableObjectBuilder()
 	.ToInspectableObject();
 ```
 
-### Inspector.Xna module
-
-Adds editors for XNA types (`Vector3`, `Color`, etc.) to the Inspector module.
-
-### MonoGame module
-
-Provides a number of utilities and controls for working with MonoGame content in WPF.
-
-#### Provides
-
-* `GraphicsDeviceService` service that implements MonoGame's `IGraphicsDeviceService`
-* `DrawingSurface` control that uses `D3DImage` as described
-  [here](http://blog.bozalina.com/2010/11/xna-40-and-wpf.html).
-
-#### NuGet package
-
-* [Gemini.Modules.MonoGame](http://nuget.org/packages/Gemini.Modules.MonoGame/)
-
-#### Dependencies
-
-* [MonoGame](http://www.monogame.net)
-
-#### Usage
-
-```csharp
-public class MyDrawingSurface : DrawingSurface
-{
-    protected override RaiseDraw(DrawEventArgs args)
-    {
-        args.GraphicsDevice.Clear(Color.LightGreen);
-        base.RaiseDraw(args);
-    }
-}
-```
-
 ### Output module
 
 ![Screenshot](https://raw.github.com/tgjones/gemini/master/doc/gemini-module-output.png)
@@ -993,63 +948,6 @@ var propertyGrid = IoC.Get<IPropertyGrid>();
 propertyGrid.SelectedObject = myObject;
 ```
 
-### Xna module
-
-![Screenshot](https://raw.github.com/tgjones/gemini/master/doc/gemini-module-xna.png)
-
-Provides a number of utilities and controls for working with XNA content in WPF. In the screenshot above,
-the document on the left uses `DrawingSurface`, and the tool window on the right uses `GraphicsDeviceControl`.
-Note that the `GraphicsDeviceControl` is clipped correctly against its parent `ScrollViewer` bounds.
-
-#### Provides
-
-* `GraphicsDeviceService` service that implements XNA's `IGraphicsDeviceService`
-* `ClippingHwndHost` control that clips hosted Win32 content to a WPF control's bounds
-
-The Xna module includes 2 alternatives for hosting XNA content in WPF:
-
-* `DrawingSurface` control that uses `D3DImage` as described
-  [here](http://blog.bozalina.com/2010/11/xna-40-and-wpf.html).
-* `GraphicsDeviceControl` control that implements Nick Gravelyn's technique for hosting
-  WPF content using an HwndHost, described [here](http://blogs.msdn.com/b/nicgrave/archive/2011/03/25/wpf-hosting-for-xna-game-studio-4-0.aspx)
-
-#### NuGet package
-
-* [Gemini.Modules.Xna](http://nuget.org/packages/Gemini.Modules.Xna/)
-
-#### Dependencies
-
-* [XNA 4.0](http://www.microsoft.com/en-us/download/details.aspx?id=23714)
-
-#### Usage
-
-Both `DrawingSurface` and `GraphicsDeviceControl` provide similar APIs, but they are
-subtly different. `DrawingSurface` works seamlessly with WPF mouse and keyboard input,
-but `GraphicsDeviceControl` routes mouse input through its own set of methods
-(`RaiseHwndLButtonDown` etc.).
-
-```csharp
-public class MyDrawingSurface : DrawingSurface
-{
-    protected override RaiseDraw(DrawEventArgs args)
-    {
-        args.GraphicsDevice.Clear(Color.LightGreen);
-        base.RaiseDraw(args);
-    }
-}
-```
-
-```csharp
-public class MyGraphicsDeviceControl : GraphicsDeviceControl
-{
-    protected override void RaiseRenderXna(GraphicsDeviceEventArgs args)
-    {
-        args.GraphicsDevice.Clear(Color.LightGreen);
-        base.RaiseRenderXna(args);
-    }
-}
-```
-
 ## Sample applications
 
 Gemini includes three sample applications:
@@ -1065,28 +963,6 @@ It also includes a very basic example of a filter designer, built on the GraphEd
 
 ![Screenshot](https://raw.github.com/tgjones/gemini/master/doc/gemini-demo.png)
 
-### Gemini.Demo.MonoGame
-
-Showcases the MonoGame module.
-
-* [Source code](https://raw.github.com/tgjones/gemini/master/src/Gemini.Demo.MonoGame)
-  
-### Gemini.Demo.SharpDX
-
-Showcases the SharpDX module.
-
-* [Source code](https://raw.github.com/tgjones/gemini/master/src/Gemini.Demo.SharpDX)
-  
-![Screenshot](https://raw.github.com/tgjones/gemini/master/doc/gemini-demo-sharpdx.png)
-
-### Gemini.Demo.Xna
-
-Showcases the Xna module.
-
-* [Source code](https://raw.github.com/tgjones/gemini/master/src/Gemini.Demo.Xna)
-  
-![Screenshot](https://raw.github.com/tgjones/gemini/master/doc/gemini-demo-xna.png)
-
 ## What projects use Gemini?
 
 I've used Gemini on several of my own projects:
@@ -1095,11 +971,6 @@ I've used Gemini on several of my own projects:
 * [Rasterizr](http://github.com/tgjones/rasterizr)
 * [SlimShader](http://github.com/tgjones/slimshader)
 * coming soon...
-
-## Development dependencies
-
-To build the XNA module and demo on your own machine, you'll need to install
-[XNA 4.0 Game Studio](http://www.microsoft.com/en-us/download/details.aspx?id=23714).
 
 ## Acknowledgements
 
