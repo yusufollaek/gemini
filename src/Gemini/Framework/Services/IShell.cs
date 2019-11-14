@@ -17,11 +17,9 @@ namespace Gemini.Framework.Services
         IToolBars ToolBars { get; }
 		IStatusBar StatusBar { get; }
 
-        // TODO: Rename this to ActiveItem.
         ILayoutItem ActiveLayoutItem { get; set; }
 
-        // TODO: Rename this to SelectedDocument.
-		IDocument ActiveItem { get; }
+		IDocument SelectedDocument { get; }
 
 		IObservableCollection<IDocument> Documents { get; }
 		IObservableCollection<ITool> Tools { get; }

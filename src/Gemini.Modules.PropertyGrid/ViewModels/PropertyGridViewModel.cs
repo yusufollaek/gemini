@@ -45,7 +45,7 @@ namespace Gemini.Modules.PropertyGrid.ViewModels
 	        if (commandDefinition is UndoCommandDefinition ||
 	            commandDefinition is RedoCommandDefinition)
 	        {
-	            return _shell.ActiveItem;
+	            return _shell.SelectedDocument;
 	        }
 
 	        return null;

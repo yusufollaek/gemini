@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -74,7 +74,7 @@ namespace Gemini.Framework.Commands
                     return commandHandler;
             }
 
-            var activeDocumentViewModel = shell.ActiveItem;
+            var activeDocumentViewModel = shell.SelectedDocument;
             if (activeDocumentViewModel != null && !Equals(activeDocumentViewModel, activeItemViewModel))
             {
                 commandHandler = GetCommandHandlerForLayoutItem(commandDefinition, activeDocumentViewModel);

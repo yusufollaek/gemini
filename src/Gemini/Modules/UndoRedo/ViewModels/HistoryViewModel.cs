@@ -69,10 +69,10 @@ namespace Gemini.Modules.UndoRedo.ViewModels
 
             shell.ActiveDocumentChanged += (sender, e) =>
             {
-                UndoRedoManager = (shell.ActiveItem != null) ? shell.ActiveItem.UndoRedoManager : null;
+                UndoRedoManager = (shell.SelectedDocument != null) ? shell.SelectedDocument.UndoRedoManager : null;
             };
-            if (shell.ActiveItem != null)
-                UndoRedoManager = shell.ActiveItem.UndoRedoManager;
+            if (shell.SelectedDocument != null)
+                UndoRedoManager = shell.SelectedDocument.UndoRedoManager;
         }
 
         private void ResetItems()

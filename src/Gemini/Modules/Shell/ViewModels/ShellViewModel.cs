@@ -84,6 +84,16 @@ namespace Gemini.Modules.Shell.ViewModels
             get { return _tools; }
         }
 
+        public IDocument SelectedDocument
+        {
+            get { return ActiveItem; }
+            set
+            {
+                ActiveItem = value;
+                NotifyOfPropertyChange();
+            }
+        }
+
         public IObservableCollection<IDocument> Documents
         {
             get { return Items; }
@@ -261,8 +271,8 @@ namespace Gemini.Modules.Shell.ViewModels
             //   on each of the open documents.
             // - If removing a document causes another to become active, then AvalonDock
             //   sets a new ActiveContent.
-            // - We have a WPF binding from Caliburn.Micro's ActiveItem to AvalonDock's
-            //   ActiveContent property, so ActiveItem gets updated.
+            // - We have a WPF binding from Caliburn.Micro's SelectedDocument to AvalonDock's
+            //   ActiveContent property, so SelectedDocument gets updated.
             // - The document no longer exists in Items, beacuse that collection was cleared,
             //   but Caliburn.Micro helpfully adds it again - which causes the crash.
             //
