@@ -1,6 +1,6 @@
 # Gemini
 
-[![Build status](https://ci.appveyor.com/api/projects/status/jwagos6igfdgx819/branch/master?svg=true)](https://ci.appveyor.com/project/tgjones/gemini/branch/master)
+[![Build status](https://ci.appveyor.com/api/projects/status/8oa1rk8kse504vsp?svg=true)]https://ci.appveyor.com/api/projects/status/8oa1rk8kse504vsp?svg=true
 [![NuGet](https://img.shields.io/nuget/v/GeminiWpf.svg)](https://www.nuget.org/packages/GeminiWpf/)
 [![Issue Stats](http://www.issuestats.com/github/tgjones/gemini/badge/pr?style=flat)](http://www.issuestats.com/github/tgjones/gemini)
 [![Issue Stats](http://www.issuestats.com/github/tgjones/gemini/badge/issue?style=flat)](http://www.issuestats.com/github/tgjones/gemini)
