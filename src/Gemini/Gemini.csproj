@@ -94,7 +94,6 @@
     <Compile Include="Framework\Behaviors\BindableTreeViewSelectedItemBehavior.cs" />
     <Compile Include="Framework\Behaviors\CustomGlowWindowBehavior.cs" />
     <Compile Include="Framework\Behaviors\KeyboardFocusBehavior.cs" />
-    <Compile Include="Framework\Behaviors\WindowOptionsBehavior.cs" />
     <Compile Include="Framework\Commands\Command.cs" />
     <Compile Include="Framework\Commands\CommandDefinition.cs" />
     <Compile Include="Framework\Commands\CommandDefinitionAttribute.cs" />
@@ -114,10 +113,7 @@
     <Compile Include="Framework\Commands\ICommandUiItem.cs" />
     <Compile Include="Framework\Commands\TargetableCommand.cs" />
     <Compile Include="Framework\Commands\ICommandRouter.cs" />
-    <Compile Include="Framework\Controls\ClippingHwndHost.cs" />
     <Compile Include="Framework\Controls\ExpanderEx.cs" />
-    <Compile Include="Framework\Controls\HwndWrapper.cs" />
-    <Compile Include="Framework\Controls\HwndMouse.cs" />
     <Compile Include="Framework\Controls\HwndMouseEventArgs.cs" />
     <Compile Include="Framework\Controls\HwndMouseState.cs" />
     <Compile Include="Framework\Controls\SliderEx.cs" />
@@ -156,7 +152,6 @@
     <Compile Include="Framework\ToolBars\ToolBarItemDefinition.cs" />
     <Compile Include="Framework\ToolBars\ToolBarItemGroupDefinition.cs" />
     <Compile Include="Framework\VisualTreeUtility.cs" />
-    <Compile Include="Framework\Win32\NativeMethods.cs" />
     <Compile Include="Framework\WindowBase.cs" />
     <Compile Include="Framework\Controls\DynamicStyle.cs" />
     <Compile Include="Modules\MainMenu\Behaviors\MenuBehavior.cs" />
@@ -510,6 +505,7 @@
     <Analyzer Include="..\packages\Gu.Localization.Analyzers.6.4.3.0\analyzers\dotnet\cs\Gu.Roslyn.AnalyzerExtensions.dll" />
     <Analyzer Include="..\packages\Gu.Localization.Analyzers.6.4.3.0\analyzers\dotnet\cs\Gu.Roslyn.CodeFixExtensions.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
